@@ -91,18 +91,19 @@ namespace API_Premium_Project.View
 
             if (!string.IsNullOrEmpty(selectedTimeZone))
             {
-                string currentTime = await GetTimeForTimeZone(selectedTimeZone);
-                TB_Horloge.Text = currentTime;
+                // Ne mettez pas à jour directement ici
             }
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+
+
+        private async void Timer_Tick(object sender, EventArgs e)
         {
             string selectedTimeZone = CB_Pays_Horloge.SelectedItem as string;
 
             if (!string.IsNullOrEmpty(selectedTimeZone))
             {
-                string currentTime = DateTime.Now.ToString("HH:mm:ss");
+                string currentTime = await GetTimeForTimeZone(selectedTimeZone);
                 TB_Horloge.Text = currentTime;
             }
         }

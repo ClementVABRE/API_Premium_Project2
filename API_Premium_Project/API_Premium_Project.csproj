@@ -73,6 +73,9 @@
     <Compile Include="View\PageHorloge.xaml.cs">
       <DependentUpon>PageHorloge.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PageNasa.xaml.cs">
+      <DependentUpon>PageNasa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PageVoyage.xaml.cs">
       <DependentUpon>PageVoyage.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PageHorloge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageNasa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

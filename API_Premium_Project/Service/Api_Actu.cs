@@ -8,6 +8,8 @@ namespace API_Premium_Project.Service
 {
     public class Api_Actu
     {
+        internal object articles;
+
         public Api_Actu()
             {
 

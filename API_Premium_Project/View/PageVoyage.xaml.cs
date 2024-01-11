@@ -24,5 +24,14 @@ namespace API_Premium_Project.View
         {
             InitializeComponent();
         }
+
+
+        private void BTN_Retour_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Window.GetWindow(this).Close();
+
+        }
     }
 }
