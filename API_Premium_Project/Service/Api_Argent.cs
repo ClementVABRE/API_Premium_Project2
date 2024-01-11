@@ -180,6 +180,8 @@ namespace API_Premium_Project.Service
 
         public class Root
         {
+            internal IEnumerable<object> articles;
+
             public string result { get; set; }
             public string documentation { get; set; }
             public string terms_of_use { get; set; }

@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
-using Newtonsoft.Json;
 using static API_Premium_Project.Service.Api_Horloge;
 
 namespace API_Premium_Project.View
@@ -56,7 +56,7 @@ namespace API_Premium_Project.View
             }
         }
 
-       
+
 
 
         private async Task<string> GetTimeForTimeZone(string timeZone)
