@@ -76,9 +76,6 @@
     <Compile Include="View\PageNasa.xaml.cs">
       <DependentUpon>PageNasa.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PageVoyage.xaml.cs">
-      <DependentUpon>PageVoyage.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,10 +97,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PageNasa.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\PageVoyage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\Images\Retour.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\Saturne.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

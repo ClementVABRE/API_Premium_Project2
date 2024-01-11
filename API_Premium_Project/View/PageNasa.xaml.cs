@@ -42,20 +42,6 @@ namespace API_Premium_Project.View
             }
         }
 
-        private async void OnNextImageClick(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                currentImageIndex++;
-                BitmapImage image = await GetSpaceImageFromApi();
-                spaceImage.Source = image;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         private async Task<BitmapImage> GetSpaceImageFromApi()
         {
             using (HttpClient client = new HttpClient())

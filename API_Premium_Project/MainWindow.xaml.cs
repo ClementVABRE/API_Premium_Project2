@@ -33,7 +33,7 @@ namespace API_Premium_Project
             Ecran.Children.Add(pageBourse);
         }
 
-        private void BTN_Voyage_Click(object sender, RoutedEventArgs e)
+        private void BTN_Nasa_Click(object sender, RoutedEventArgs e)
         {
             Ecran.Children.Clear();
             PageNasa pageNasa = new PageNasa();
