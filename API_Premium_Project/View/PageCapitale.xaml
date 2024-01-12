@@ -41,9 +41,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Recherche de capitale par Pays :" Margin="5" FontFamily="Arial Black" FontSize="24"/>
+        <TextBlock Grid.Row="0" Text="Recherche de capitale par Pays :" Margin="5" FontFamily="Arial Black" FontSize="24" Width="500"/>
         <TextBox Grid.Row="1" x:Name="txtCountry" Margin="5,5,658,4" Background="Transparent" FontSize="22" FontFamily="Arial Black"/>
-        <TextBlock Grid.Row="3" Margin="5" FontSize="24" FontFamily="Arial Black"><Run Language="fr-fr" Text="Résultat"/><Run Text=" :"/></TextBlock>
+        <TextBlock Grid.Row="3" Margin="5"  FontSize="24" FontFamily="Arial Black"><Run Language="fr-fr" Text="Résultat"/><Run Text=" :" /></TextBlock>
         <Button Grid.Row="2" Content="Rechercher" Click="btnSearch_Click" Style="{StaticResource RoundButtonStyle}" Height="45" HorizontalAlignment="Left" Margin="354,4,0,0" VerticalAlignment="Top">
             <UIElement.RenderTransform>
                 <TransformGroup>
