@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using static API_Premium_Project.Service.Api_Argent;
-using NewsAPI;
 
 namespace API_Premium_Project.View
 {
-    /// <summary>
-    /// Logique d'interaction pour PageBourse.xaml
-    /// </summary>
+   
     public partial class PageBourse : UserControl
     {
-        Api_Actu api_actu;
+      
         Money_list money_list;
         Api_Argent api_argent;
         Pays_list pays_list;
@@ -24,17 +21,16 @@ namespace API_Premium_Project.View
         public PageBourse()
         {
             InitializeComponent();
-            api_actu = new Api_Actu();
+           
             pays_list = new Pays_list();
             money_list = new Money_list();
             api_argent = new Api_Argent();
-            ApiUrl2 = "https://newsapi.org/v2/top-headlines?country=fr&apiKey=e373d9e558a54e80b0435171b91c8025";
             ApiUrl = "https://v6.exchangerate-api.com/v6/15d970716364c58deb6e73c8/latest/USD";
             GetValueMoney(ApiUrl);
-            GetActu(ApiUrl2);
+          
 
 
-            CB_Pays_Actu.ItemsSource = pays_list.LsActu;
+         
 
 
             CB_Pays_1.ItemsSource = money_list.LsMoney;
@@ -47,7 +43,7 @@ namespace API_Premium_Project.View
 
         }
 
-    
+
         private async void UpdateMoneyData(string SelectedMoney)
         {
             // On définit l'URL de l'API
@@ -149,36 +145,10 @@ namespace API_Premium_Project.View
             Window.GetWindow(this).Close();
 
         }
-        public async void GetActu(string apiUrl2) // On récupère les données météo
-        {
-            try
-            {
-                HttpClient client = new HttpClient(); // On crée un objet HttpClient
 
-                HttpResponseMessage response = await client.GetAsync(apiUrl2); // On récupère les données de
-                if (response.IsSuccessStatusCode) // Si la requête a réussi
-                {
-                    var content = await response.Content.ReadAsStringAsync(); // On récupère le contenu de la réponse
-                    dynamic actudata = JsonConvert.DeserializeObject(content); // On désérialise le contenu de la répons
-
-                    TB_Actu1_Gauche.Text = ":  " + actudata.root.statut.ToString();
-
-                }
-
-
-                else
-                {
-                    MessageBox.Show("Erreur lors de la récupération des données actualités."); // On affiche un message d'erreur
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}");
-            }
-        }
 
     }
-    }
+}
 
 
 

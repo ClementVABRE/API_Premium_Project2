@@ -21,19 +21,19 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="Image du jour Nasa" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"></Label>
+        <Label Content="Image du jour Nasa" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" FontSize="24" FontFamily="Arial Black" ></Label>
 
         <Image x:Name="spaceImage" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="600" Height="350" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
 
         <!--Retour-->
-        <Button Grid.Row="4" Height="40" Width="40" Background="White" Name="BTN_Retour" Click="BTN_Retour_Click" HorizontalAlignment="Left">
+        <Button Grid.Row="4" Height="40" Width="40" Name="BTN_Retour" Click="BTN_Retour_Click" HorizontalAlignment="Left">
             <StackPanel Orientation="Vertical">
                 <Image Height="20" Width="20" Source="/Ressources/Images/Retour.jpg"/>
                 <Label Content="Retour" FontSize="7" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
 
-        <Button Content="Obtenir Image de l'Espace" Click="OnGetSpaceImageClick" HorizontalAlignment="center" VerticalAlignment="center" Grid.Column="1" Grid.Row="2"/>
+        <Button Content="Obtenir Image de l'Espace" Click="OnGetSpaceImageClick" HorizontalAlignment="center" VerticalAlignment="center" Grid.Column="1" Grid.Row="2" Background="White" BorderBrush="White"/>
     </Grid>
 
 </UserControl>

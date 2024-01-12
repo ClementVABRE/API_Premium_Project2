@@ -5,32 +5,130 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:API_Premium_Project.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <Color x:Key="PrimaryColor">#173753</Color>
+        <Color x:Key="AccentColor">#6DAEDB</Color>
+        <Color x:Key="HighlightColor">#2892D7</Color>
+        
+        <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="{DynamicResource PrimaryColor}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Padding" Value="5"/>
+    <Setter Property="Margin" Value="10"/>
+    <Setter Property="Height" Value="20"/>
+    <Setter Property="Width" Value="60"/>
+    <Setter Property="ItemsPanel">
+        <Setter.Value>
+            <ItemsPanelTemplate>
+                <VirtualizingStackPanel />
+            </ItemsPanelTemplate>
+        </Setter.Value>
+    </Setter>
+    <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate TargetType="ComboBox">
+                <Grid>
+                    <ToggleButton
+                        Name="ToggleButton"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        Foreground="{TemplateBinding Foreground}"
+                        Padding="{TemplateBinding Padding}"
+                        Grid.Column="2"
+                        ClickMode="Press"
+                        Focusable="false">
+                        <Path
+                            x:Name="Arrow"
+                            Grid.Column="2"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Data="M 0 0 L 4 4 L 8 0 Z">
+                            <Path.Fill>
+                                <SolidColorBrush Color="{DynamicResource HighlightColor}" />
+                            </Path.Fill>
+                        </Path>
+                    </ToggleButton>
+                    <ContentPresenter
+                        Name="ContentSite"
+                        Content="{TemplateBinding SelectionBoxItem}"
+                        ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                        ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="5, 0, 0, 0"
+                        IsHitTestVisible="False" />
+                    <Popup
+                        Name="Popup"
+                        Placement="Bottom"
+                        IsOpen="{TemplateBinding IsDropDownOpen}"
+                        AllowsTransparency="True"
+                        Focusable="False"
+                        PopupAnimation="Slide">
+                        <Grid
+                            Name="DropDown"
+                            SnapsToDevicePixels="True"
+                            MinWidth="{TemplateBinding ActualWidth}"
+                            MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                            <Border
+                                x:Name="DropDownBorder"
+                                Background="{DynamicResource PrimaryColor}"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource PrimaryColor}" />
+                            <ScrollViewer
+                                Margin="4, 6, 4, 6"
+                                SnapsToDevicePixels="True">
+                                <StackPanel IsItemsHost="True" />
+                            </ScrollViewer>
+                        </Grid>
+                    </Popup>
+                </Grid>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Foreground" Value="{DynamicResource AccentColor}" />
+                    </Trigger>
+                    <Trigger Property="IsGrouping" Value="True">
+                        <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+                    </Trigger>
+                    <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="True">
+                        <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="4" />
+                        <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </Setter.Value>
+    </Setter>
+</Style>
+
+    </UserControl.Resources>
+    
+    
+
 
     <Grid Background="White" Name="EcranBourse">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="0.01*"/>
-            <ColumnDefinition Width="2*"/>
+           
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="1">
-            <Border  BorderBrush="Black" BorderThickness="2"/>
+          
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="1">
-            <Border  BorderBrush="Black" BorderThickness="2"/>
+        
         </Grid>
         <Grid Grid.Column="0" Grid.Row="0" >
-            <TextBlock Text="Convertisseur" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="Convertisseur" FontSize="30" HorizontalAlignment="Center" />
         </Grid>
-        <Grid Grid.Column="2" Grid.Row="0" >
-            <TextBlock Text="Actualités" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </Grid>
-
+       
 
 
         <Grid Grid.Column="0" Grid.Row="1" >
@@ -125,84 +223,9 @@
 
 
 
-        <Grid Grid.Column="2" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+       
 
-            <!--Grid pour la partie Gauche de l'actualité-->
-
-            <Grid Grid.Row="0" Grid.Column="0">
-                <ComboBox Name="CB_Pays_Actu" SelectionChanged="ComboBox_SelectionChanged" Height="20" Width="80" ItemsSource="{Binding LsMoney}"/>
-            </Grid>
-
-
-            <Grid Grid.Row="1" Grid.Column="0">
-                <Border BorderBrush="Black" BorderThickness="2" Margin="10">
-                    <TextBlock Text="Actualités 1" Name="TB_Actu1_Gauche" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-3,1,0,0" Height="57" Width="239" />
-                </Border>
-            </Grid>
-
-            <Grid Grid.Row="2" Grid.Column="0">
-                <Border BorderBrush="Black" BorderThickness="2" Margin="10">
-                    <TextBlock Text="Actualités 2" Name="TB_Actu2_Gauche" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" />
-                </Border>
-            </Grid>
-
-            <Grid Grid.Row="3" Grid.Column="0">
-                <Border BorderBrush="Black" BorderThickness="2" Margin="10">
-                    <TextBlock Text="Actualités 3" Name="TB_Actu3_Gauche" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" />
-                </Border>
-            </Grid>
-
-            <Grid Grid.Row="4" Grid.Column="0">
-                <Border BorderBrush="Black" BorderThickness="2" Margin="10">
-                    <TextBlock Text="Actualités 4" Name="TB_Actu4_Gauche" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" />
-                </Border>
-            </Grid>
-
-
-
-            <!--Grid pour la partie Droite de l'actualité-->
-
-            <Grid Grid.Row="0" Grid.Column="1">
-                <ComboBox Name="CB_Pays_Actu2" SelectionChanged="ComboBox_SelectionChanged" Height="20" Width="80" ItemsSource="{Binding LsMoney}"/>
-            </Grid>
-
-            <Grid Grid.Row="1" Grid.Column="1">
-                <Border BorderBrush="Black" BorderThickness="2" Margin="10">
-                    <TextBlock Text="Actualités 1" Name="TB_Actu1_Droite" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" />
-                </Border>
-            </Grid>
-
-            <Grid Grid.Row="2" Grid.Column="1">
-                <Border BorderBrush="Black" BorderThickness="2" Margin="10">
-                    <TextBlock Text="Actualités 2" Name="TB_Actu2_Droite" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" />
-                </Border>
-            </Grid>
-
-            <Grid Grid.Row="3" Grid.Column="1">
-                <Border BorderBrush="Black" BorderThickness="2" Margin="10">
-                    <TextBlock Text="Actualités 3" Name="TB_Actu3_Droite" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" />
-                </Border>
-            </Grid>
-
-            <Grid Grid.Row="4" Grid.Column="1">
-                <Border BorderBrush="Black" BorderThickness="2" Margin="10">
-                    <TextBlock Text="Actualités 4" Name="TB_Actu4_Droite" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" />
-                </Border>
-            </Grid>
-
-        </Grid>
-
+       
     </Grid>
 
 

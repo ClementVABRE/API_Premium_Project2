@@ -43,8 +43,8 @@ namespace API_Premium_Project
         private void BTN_Horloge_Click(object sender, RoutedEventArgs e)
         {
             Ecran.Children.Clear();
-            PageHorloge pageHorloge = new PageHorloge();
-            Ecran.Children.Add(pageHorloge);
+            PageCapitale pageCapitale = new PageCapitale();
+            Ecran.Children.Add(pageCapitale);
 
         }
     }
