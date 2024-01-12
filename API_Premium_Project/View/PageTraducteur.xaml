@@ -19,5 +19,12 @@
             <Button Content="Traduire" Click="TranslateButton_Click"/>
             <TextBlock x:Name="TranslationTextBlock" Margin="0 10 0 0"/>
         </StackPanel>
+
+        <Button Grid.Row="7" Height="40" Width="40" Name="BTN_Retour" Click="BTN_Retour_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5">
+            <StackPanel Orientation="Vertical">
+                <Image Height="20" Width="20" Source="/Ressources/Images/Retour.jpg"/>
+                <Label Content="Retour" FontSize="7" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </UserControl>

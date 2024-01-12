@@ -62,7 +62,12 @@ namespace API_Premium_Project.View
             // Sélectionnez la première langue par défaut
             TargetLanguageComboBox.SelectedIndex = 0;
         }
-
+        private void BTN_Retour_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Window.GetWindow(this).Close();
+        }
         private async void TranslateButton_Click(object sender, RoutedEventArgs e)
         {
             string inputText = InputTextBox.Text;
