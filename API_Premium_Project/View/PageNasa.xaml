@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:API_Premium_Project.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
+    <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.4*"/>
             <RowDefinition Height="3*"/>
@@ -26,14 +26,14 @@
         <Image x:Name="spaceImage" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="600" Height="350" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
 
         <!--Retour-->
-        <Button Grid.Row="4" Height="40" Width="40" Name="BTN_Retour" Click="BTN_Retour_Click" HorizontalAlignment="Left">
+        <Button Grid.Row="2" Height="40" Width="40" Name="BTN_Retour" Click="BTN_Retour_Click" HorizontalAlignment="Left" Margin="-1,7,0,0">
             <StackPanel Orientation="Vertical">
                 <Image Height="20" Width="20" Source="/Ressources/Images/Retour.jpg"/>
                 <Label Content="Retour" FontSize="7" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
 
-        <Button Content="Obtenir l'image de l'Espace" Click="OnGetSpaceImageClick" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2" Background="White" BorderBrush="White"/>
+        <Button Content="Obtenir l'image du jour de la NASA" Click="OnGetSpaceImageClick" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2" Background="Black" BorderBrush="White" Foreground="White"/>
     </Grid>
 
 </UserControl>
