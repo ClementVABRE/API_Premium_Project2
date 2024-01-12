@@ -40,7 +40,7 @@ namespace API_Premium_Project
             Ecran.Children.Add(pageNasa);
         }
 
-        private void BTN_Horloge_Click(object sender, RoutedEventArgs e)
+        private void BTN_Capital_Click(object sender, RoutedEventArgs e)
         {
             Ecran.Children.Clear();
             PageCapitale pageCapitale = new PageCapitale();

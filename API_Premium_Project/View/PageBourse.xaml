@@ -8,127 +8,53 @@
              d:DesignHeight="450" d:DesignWidth="400">
 
     <UserControl.Resources>
-        <Color x:Key="PrimaryColor">#173753</Color>
-        <Color x:Key="AccentColor">#6DAEDB</Color>
-        <Color x:Key="HighlightColor">#2892D7</Color>
-        
-        <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
-    <Setter Property="Foreground" Value="White"/>
-    <Setter Property="Background" Value="{DynamicResource PrimaryColor}"/>
-    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}"/>
-    <Setter Property="BorderThickness" Value="1"/>
-    <Setter Property="Padding" Value="5"/>
-    <Setter Property="Margin" Value="10"/>
-    <Setter Property="Height" Value="20"/>
-    <Setter Property="Width" Value="60"/>
-    <Setter Property="ItemsPanel">
-        <Setter.Value>
-            <ItemsPanelTemplate>
-                <VirtualizingStackPanel />
-            </ItemsPanelTemplate>
-        </Setter.Value>
-    </Setter>
-    <Setter Property="Template">
-        <Setter.Value>
-            <ControlTemplate TargetType="ComboBox">
-                <Grid>
-                    <ToggleButton
-                        Name="ToggleButton"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        Background="{TemplateBinding Background}"
-                        Foreground="{TemplateBinding Foreground}"
-                        Padding="{TemplateBinding Padding}"
-                        Grid.Column="2"
-                        ClickMode="Press"
-                        Focusable="false">
-                        <Path
-                            x:Name="Arrow"
-                            Grid.Column="2"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Data="M 0 0 L 4 4 L 8 0 Z">
-                            <Path.Fill>
-                                <SolidColorBrush Color="{DynamicResource HighlightColor}" />
-                            </Path.Fill>
-                        </Path>
-                    </ToggleButton>
-                    <ContentPresenter
-                        Name="ContentSite"
-                        Content="{TemplateBinding SelectionBoxItem}"
-                        ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
-                        ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Left"
-                        Margin="5, 0, 0, 0"
-                        IsHitTestVisible="False" />
-                    <Popup
-                        Name="Popup"
-                        Placement="Bottom"
-                        IsOpen="{TemplateBinding IsDropDownOpen}"
-                        AllowsTransparency="True"
-                        Focusable="False"
-                        PopupAnimation="Slide">
-                        <Grid
-                            Name="DropDown"
-                            SnapsToDevicePixels="True"
-                            MinWidth="{TemplateBinding ActualWidth}"
-                            MaxHeight="{TemplateBinding MaxDropDownHeight}">
-                            <Border
-                                x:Name="DropDownBorder"
-                                Background="{DynamicResource PrimaryColor}"
-                                BorderThickness="1"
-                                BorderBrush="{DynamicResource PrimaryColor}" />
-                            <ScrollViewer
-                                Margin="4, 6, 4, 6"
-                                SnapsToDevicePixels="True">
-                                <StackPanel IsItemsHost="True" />
-                            </ScrollViewer>
-                        </Grid>
-                    </Popup>
-                </Grid>
-                <ControlTemplate.Triggers>
-                    <Trigger Property="IsEnabled" Value="False">
-                        <Setter Property="Foreground" Value="{DynamicResource AccentColor}" />
-                    </Trigger>
-                    <Trigger Property="IsGrouping" Value="True">
-                        <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
-                    </Trigger>
-                    <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="True">
-                        <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="4" />
-                        <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0" />
-                    </Trigger>
-                </ControlTemplate.Triggers>
-            </ControlTemplate>
-        </Setter.Value>
-    </Setter>
-</Style>
-
+        <Style x:Key="RoundButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#007ACC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#007ACC"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
-    
-    
+
+
+
 
 
     <Grid Background="White" Name="EcranBourse">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-           
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="1">
-          
+
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="1">
-        
+
         </Grid>
         <Grid Grid.Column="0" Grid.Row="0" >
             <TextBlock Text="Convertisseur" FontSize="30" HorizontalAlignment="Center" />
         </Grid>
-       
+
 
 
         <Grid Grid.Column="0" Grid.Row="1" >
@@ -144,7 +70,7 @@
             <!--Grid pour le bouton-->
 
             <Grid Grid.Row="1">
-                <Button x:Name="Btn_Convertir" Content="Convertir" Click="BTN_Convert_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" />
+                <Button x:Name="Btn_Convertir" Content="Convertir" Click="BTN_Convert_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource RoundButtonStyle}" />
             </Grid>
 
             <Grid Grid.Column="0" Grid.Row="0" >
@@ -203,12 +129,19 @@
                 <Grid Grid.Column="0">
                     <StackPanel>
                         <TextBlock Text="Résultat" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" />
-                        <TextBlock Text="" x:Name="TB_Valeur2" FontSize="10" Height="20" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10"/>
+                        <TextBlock Text="" x:Name="TB_Valeur2" FontSize="10" Height="20" Width="71" HorizontalAlignment="Left" Margin="10"/>
                     </StackPanel>
                 </Grid>
 
+                
+                      
+                      
 
 
+
+            </Grid>
+            <Grid Grid.Row="3">
+                <Button Content="Lien vers la bourse" Click="Btn_link_Click" Style="{StaticResource RoundButtonStyle}" Width="172" Height="44" />
             </Grid>
 
             <!--Retour-->
@@ -223,9 +156,9 @@
 
 
 
-       
 
-       
+
+
     </Grid>
 
 

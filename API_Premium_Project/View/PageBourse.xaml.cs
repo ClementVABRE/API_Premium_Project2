@@ -15,14 +15,14 @@ namespace API_Premium_Project.View
       
         Money_list money_list;
         Api_Argent api_argent;
-        Pays_list pays_list;
+        
         public string ApiUrl;
         public string ApiUrl2;
         public PageBourse()
         {
             InitializeComponent();
            
-            pays_list = new Pays_list();
+            
             money_list = new Money_list();
             api_argent = new Api_Argent();
             ApiUrl = "https://v6.exchangerate-api.com/v6/15d970716364c58deb6e73c8/latest/USD";
@@ -145,6 +145,15 @@ namespace API_Premium_Project.View
             Window.GetWindow(this).Close();
 
         }
+
+        private void Btn_link_Click(object sender, RoutedEventArgs e)
+        {
+            
+            string stockChartUrl = "https://www.boursorama.com/bourse/devises/taux-de-change-euro-dollar-EUR-USD/";
+
+            System.Diagnostics.Process.Start(stockChartUrl);
+        }
+
 
 
     }

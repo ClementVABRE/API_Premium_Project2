@@ -98,15 +98,11 @@
     <Compile Include="Service\Api_Argent.cs" />
     <Compile Include="Service\Api_Horloge.cs" />
     <Compile Include="Service\Money_List.cs" />
-    <Compile Include="Service\Pays_list.cs" />
     <Compile Include="View\PageBourse.xaml.cs">
       <DependentUpon>PageBourse.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PageCapitale.xaml.cs">
       <DependentUpon>PageCapitale.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\PageHorloge.xaml.cs">
-      <DependentUpon>PageHorloge.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PageNasa.xaml.cs">
       <DependentUpon>PageNasa.xaml</DependentUpon>
@@ -128,10 +124,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PageCapitale.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\PageHorloge.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

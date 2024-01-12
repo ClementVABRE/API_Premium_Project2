@@ -21,7 +21,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="Image du jour Nasa" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" FontSize="24" FontFamily="Arial Black" ></Label>
+        <Label Content="Image du jour Nasa" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" FontSize="23" FontFamily="Arial Black" ></Label>
 
         <Image x:Name="spaceImage" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="600" Height="350" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
 
@@ -33,7 +33,7 @@
             </StackPanel>
         </Button>
 
-        <Button Content="Obtenir Image de l'Espace" Click="OnGetSpaceImageClick" HorizontalAlignment="center" VerticalAlignment="center" Grid.Column="1" Grid.Row="2" Background="White" BorderBrush="White"/>
+        <Button Content="Obtenir l'image de l'Espace" Click="OnGetSpaceImageClick" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2" Background="White" BorderBrush="White"/>
     </Grid>
 
 </UserControl>
