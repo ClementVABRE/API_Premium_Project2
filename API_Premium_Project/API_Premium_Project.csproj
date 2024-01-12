@@ -97,6 +97,7 @@
     <Compile Include="Service\Api_Actu.cs" />
     <Compile Include="Service\Api_Argent.cs" />
     <Compile Include="Service\Api_Horloge.cs" />
+    <Compile Include="Service\DeepLTranslator.cs" />
     <Compile Include="Service\Money_List.cs" />
     <Compile Include="View\PageBourse.xaml.cs">
       <DependentUpon>PageBourse.xaml</DependentUpon>
@@ -106,6 +107,9 @@
     </Compile>
     <Compile Include="View\PageNasa.xaml.cs">
       <DependentUpon>PageNasa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageTraducteur.xaml.cs">
+      <DependentUpon>PageTraducteur.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PageNasa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageTraducteur.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

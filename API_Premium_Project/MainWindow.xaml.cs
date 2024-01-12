@@ -47,5 +47,12 @@ namespace API_Premium_Project
             Ecran.Children.Add(pageCapitale);
 
         }
+
+        private void BTN_Traducteur_Click(object sender, RoutedEventArgs e)
+        {
+            Ecran.Children.Clear();
+            PageTraducteur pageTraducteur = new PageTraducteur();
+            Ecran.Children.Add(pageTraducteur);
+        }
     }
 }
