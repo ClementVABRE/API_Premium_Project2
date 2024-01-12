@@ -94,9 +94,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Service\Api_Actu.cs" />
     <Compile Include="Service\Api_Argent.cs" />
-    <Compile Include="Service\Api_Horloge.cs" />
     <Compile Include="Service\DeepLTranslator.cs" />
     <Compile Include="Service\Money_List.cs" />
     <Compile Include="View\PageBourse.xaml.cs">
@@ -187,6 +185,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\Images\Traducteur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\MapsMonde.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

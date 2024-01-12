@@ -19,36 +19,37 @@ namespace API_Premium_Project
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window 
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+
         }
 
-        private void BTN_Bourse_Click(object sender, RoutedEventArgs e)
+        private void BTN_Bourse_Click(object sender, RoutedEventArgs e) // Bouton Bourse
         {
-            Ecran.Children.Clear();
-            PageBourse pageBourse = new PageBourse();
-            Ecran.Children.Add(pageBourse);
+            Ecran.Children.Clear(); // Permet de vider l'écran
+            PageBourse pageBourse = new PageBourse(); // Création d'une nouvelle page
+            Ecran.Children.Add(pageBourse); // Ajout de la page à l'écran
         }
 
-        private void BTN_Nasa_Click(object sender, RoutedEventArgs e)
+        private void BTN_Nasa_Click(object sender, RoutedEventArgs e) // Bouton Nasa
         {
             Ecran.Children.Clear();
             PageNasa pageNasa = new PageNasa();
             Ecran.Children.Add(pageNasa);
         }
 
-        private void BTN_Capital_Click(object sender, RoutedEventArgs e)
+        private void BTN_Capital_Click(object sender, RoutedEventArgs e) // Bouton Capitale
         {
-            Ecran.Children.Clear();
+            Ecran.Children.Clear(); 
             PageCapitale pageCapitale = new PageCapitale();
             Ecran.Children.Add(pageCapitale);
 
         }
 
-        private void BTN_Traducteur_Click(object sender, RoutedEventArgs e)
+        private void BTN_Traducteur_Click(object sender, RoutedEventArgs e) // Bouton Traducteur
         {
             Ecran.Children.Clear();
             PageTraducteur pageTraducteur = new PageTraducteur();

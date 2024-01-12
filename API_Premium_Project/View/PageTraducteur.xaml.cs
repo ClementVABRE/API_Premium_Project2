@@ -68,22 +68,22 @@ namespace API_Premium_Project.View
             mainWindow.Show();
             Window.GetWindow(this).Close();
         }
-        private async void TranslateButton_Click(object sender, RoutedEventArgs e)
+        private async void TranslateButton_Click(object sender, RoutedEventArgs e) // Fonction qui permet de traduire le texte
         {
-            string inputText = InputTextBox.Text;
+            string inputText = InputTextBox.Text; // Récupérez le texte à traduire
 
             // Récupérez le code de langue à partir de la ComboBox
             string targetLanguage = TargetLanguageComboBox.SelectedValue.ToString();
 
-            string translation = await deepLTranslator.TranslateText(inputText, targetLanguage);
+            string translation = await deepLTranslator.TranslateText(inputText, targetLanguage); // Traduisez le texte
 
-            if (translation != null)
+            if (translation != null) // Si la traduction est réussie
             {
-                TranslationTextBlock.Text = translation;
+                TranslationTextBlock.Text = translation; // Affichez la traduction
             }
             else
             {
-                MessageBox.Show("Erreur lors de la traduction.");
+                MessageBox.Show("Erreur lors de la traduction."); // Sinon, affichez un message d'erreur
             }
         }
     }
